@@ -7,7 +7,7 @@ import Books from './routes/Books';
 import Book from './routes/Book';
 import AddBook from './routes/AddBook';
 
-const theme = createTheme({
+const theme = createTheme({ // dark and light version?
   palette: {
     primary: {
       main: '#004d40',
@@ -18,7 +18,7 @@ const theme = createTheme({
   },
 });
 
-function App() {
+function App() { // define paths and children of root
   const router = createBrowserRouter([
     {
       path: '/',
@@ -37,7 +37,7 @@ function App() {
         <RouterProvider router={router}></RouterProvider>
       </ThemeProvider>
     </LocalizationProvider>
-  );
+  ); // all in MUI style with the variables theme and router
 }
 
 export default App;

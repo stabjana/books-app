@@ -13,10 +13,10 @@ import useAxios from '../services/useAxios';
 import { bookGenres } from '../genres';
 import { Stack, Typography } from '@mui/material';
 
-function AddBook() {
+function AddBook() { //allows to add details about a new book // useState -> manage the form's data
   const { alert, post } = useAxios('http://localhost:3001');
-  const [rateValue, setRateValue] = useState(3);
-  const [book, setBook] = useState({
+  const [rateValue, setRateValue] = useState(3); // tracks the star rating of the book
+  const [book, setBook] = useState({ // book is empty by default
     author: '',
     name: '',
     genres: [],
@@ -26,7 +26,7 @@ function AddBook() {
     stars: null,
   });
 
-  const genreChangeHandler = (event) => {
+  const genreChangeHandler = (event) => { // if genres field changes
     const { value } = event.target;
     setBook({
       ...book,
@@ -34,7 +34,7 @@ function AddBook() {
     });
   };
 
-  const rateChangeHandler = (event) => {
+  const rateChangeHandler = (event) => { // if rating field changes
     const { value } = event.target;
     setBook({
       ...book,
@@ -42,7 +42,7 @@ function AddBook() {
     });
   };
 
-  const addBookHandler = (e) => {
+  const addBookHandler = (e) => { // form input changes - updates in book state
     const { name, value, checked, type } = e.target;
     if (type === 'checkbox' && name === 'completed') {
       setBook({ ...book, [name]: checked });
@@ -51,10 +51,13 @@ function AddBook() {
     }
   };
 
-  function postHandler() {
+  function postHandler() { // sends the book object via post method to the server - sends request to add it to the database
     post('books', book);
   }
-
+  // form is interactive and manages input
+  // to render it uses MUI components
+  // inhalt is shown in {} for example function calls oder values
+  // name, label, variant are props
   return (
     <form onChange={addBookHandler} onSubmit={postHandler}>
       <Stack

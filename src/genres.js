@@ -13,4 +13,4 @@ export const bookGenres = [
   "Children's Books",
   'Historical',
   'Horror',
-];
+]; // array of possible book genres -  because otherwise it would get wild

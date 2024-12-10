@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const useAxios = (baseUrl) => {
+const useAxios = (baseUrl) => { // handels the traffic between server and form with several handling options (del, update, post)
+  // error handling and timeouts sind auch hier definiert - DER Ort an dem was schief gehen kann.
   const [data, setData] = useState(null);
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [loading, setLoading] = useState(false);

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material';
 
-function Header() {
+function Header() { // renders a nav header with Material UI components: Box (is a container), AppBar (creates app bar at top), Toolbar (adds padding and organizes all elements in the appbar), Typography (displays text with MUI styles), Button (here a nav button)
+    // link is from react router - navigate between pages
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
