@@ -24,7 +24,7 @@ function Books() {
   }, []);
 
   // TODO: Replace axios with useAxios hook
-  async function getBooks() {
+  async function getBooks() { // gets all books from storage
     try {
       const response = await axios.get('http://localhost:3000/books');
       setBooks(response.data);
@@ -99,7 +99,7 @@ function Books() {
         </div>
       )}
     </Box>
-  );
+  ); // returns all books in the MUI components style
 }
 
 export default Books;
