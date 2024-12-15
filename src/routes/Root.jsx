@@ -11,4 +11,3 @@ function Root() {
 }
 
 export default Root;
-// handels the rooting
