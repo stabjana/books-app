@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import useAxios from '../services/useAxios';
 import {
   Box,
   Card,
@@ -24,15 +25,26 @@ function Books() {
   }, []);
 
   // TODO: Replace axios with useAxios hook
-  async function getBooks() { // gets all books from storage
+  async function getBooks() {
     try {
-      const response = await axios.get('http://localhost:3000/books');
+      const [getResponse, setGetResponse] = useAxios('http://localhost:3000/books');
       setBooks(response.data);
       setIsLoading(false);
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error);
     }
-  }
+  };
+
+  /*   async function getBooks() { // gets all books from storage
+      try {
+        const response = await axios.get('http://localhost:3000/books');
+        setBooks(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    } */
 
   // TODO: Implement search functionality
   return (
