@@ -3,7 +3,8 @@ import axios from 'axios';
 
 const useAxios = (baseUrl) => { // handels the traffic between server and form with several handling options (del, update, post)
   // error handling and timeouts sind auch hier definiert - DER Ort an dem was schief gehen kann.
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null); //data is the response from the server, null by default 
+  const [data, setData] = useState([]); //data is the response from the server, [] by default 
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [loading, setLoading] = useState(false);
 
@@ -14,7 +15,7 @@ const useAxios = (baseUrl) => { // handels the traffic between server and form w
     }, 5000);
   };
 
-  const makeRequest = async (method, endpoint, payload = null) => {
+  const makeRequest = async (method, endpoint, payload = null) => { //makes a server req, takes  method, endpoint, and payload as arguments
     try {
       setLoading(true);
       const response = await axios[method](`${baseUrl}/${endpoint}`, payload);

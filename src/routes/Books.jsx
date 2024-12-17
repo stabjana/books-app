@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import useAxios from '../services/useAxios';
 import {
   Box,
@@ -14,43 +13,26 @@ import {
   Typography,
 } from '@mui/material';
 
+// list of books will be get and rendered
+
 function Books() {
-  const [books, setBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+
+  const { data: books, alert, loading, get } = useAxios('http://localhost:3000'); //use the custom hook to get data from the server
 
   useEffect(() => {
     if (books.length === 0) {
       getBooks();
     }
-  }, []);
+  }, [books]);
 
-  // TODO: Replace axios with useAxios hook
-  async function getBooks() {
-    try {
-      const [getResponse, setGetResponse] = useAxios('http://localhost:3000/books');
-      setBooks(response.data);
-      setIsLoading(false);
-    }
-    catch (error) {
-      console.error(error);
-    }
-  };
-
-  /*   async function getBooks() { // gets all books from storage
-      try {
-        const response = await axios.get('http://localhost:3000/books');
-        setBooks(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
-    } */
-
+  const getBooks = async () => {
+    await get('books');
+  }
   // TODO: Implement search functionality
   return (
     <Box sx={{ mx: 'auto', p: 2 }}>
-      {isLoading && <CircularProgress />}
-      {!isLoading && (
+      {loading && <CircularProgress />}
+      {!loading && (
         <div>
           <Stack
             sx={{ justifyContent: 'space-around' }}
@@ -99,7 +81,7 @@ function Books() {
                 >
                   <Rating
                     name="read-only"
-                    value={book.stars}
+                    value={Number(book.stars)}
                     readOnly
                     size="small"
                   />
