@@ -81,7 +81,7 @@ function Books() {
                 >
                   <Rating
                     name="read-only"
-                    value={book.stars}
+                    value={Number(book.stars)}
                     readOnly
                     size="small"
                   />
