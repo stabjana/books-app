@@ -14,7 +14,7 @@ import { bookGenres } from '../genres';
 import { Stack, Typography } from '@mui/material';
 
 function AddBook() { //allows to add details about a new book // useState -> manage the form's data
-  const { alert, post } = useAxios('http://localhost:3001');
+  const { alert, post } = useAxios('http://localhost:3000');
   const [rateValue, setRateValue] = useState(3); // tracks the star rating of the book
   const [book, setBook] = useState({ // book is empty by default
     author: '',
@@ -51,12 +51,13 @@ function AddBook() { //allows to add details about a new book // useState -> man
     }
   };
 
-  function postHandler() { // sends the book object via post method to the server - sends request to add it to the database
-    post('books', book);
+  async function postHandler(e) { // sends the book object via post method to the server - sends request to add it to the database
+    e.preventDefault();
+    await post('books', book);
   }
   // form is interactive and manages input
   // to render it uses MUI components
-  // inhalt is shown in {} for example function calls oder values
+  // content is shown in {} for example function calls oder values
   // name, label, variant are props
   return (
     <form onChange={addBookHandler} onSubmit={postHandler}>
