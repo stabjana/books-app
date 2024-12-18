@@ -11,6 +11,7 @@ import {
   Rating,
   Chip,
   Typography,
+  TextField
 } from '@mui/material';
 
 // list of books will be get and rendered
@@ -18,19 +19,50 @@ import {
 function Books() {
 
   const { data: books, alert, loading, get } = useAxios('http://localhost:3000'); //use the custom hook to get data from the server
+  const [search, setSearch] = useState('');
+  const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
     if (books.length === 0) {
       getBooks();
+    }
+    else {
+      setFilteredBooks(books);
     }
   }, [books]);
 
   const getBooks = async () => {
     await get('books');
   }
+  // Update filtered books when search input or book list changes
+  useEffect(() => {
+    if (books) {
+      const filtered = books.filter((book) =>
+        book.name.toLowerCase().includes(search.toLowerCase()) ||
+        book.author.toLowerCase().includes(search.toLowerCase()) ||
+        book.genres.some((genre) => genre.toLowerCase().includes(search.toLowerCase()))
+      );
+      setFilteredBooks(filtered);
+    }
+  }, [search, books]);
+
+  const genres = [...new Set(books.flatMap((book) => book.genres))];//get a set of all genres used in 'db'
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
   // TODO: Implement search functionality
   return (
     <Box sx={{ mx: 'auto', p: 2 }}>
+      <TextField
+        label="Search Books"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        value={search}
+        onChange={handleSearch}
+      />
       {loading && <CircularProgress />}
       {!loading && (
         <div>
@@ -41,7 +73,7 @@ function Books() {
             useFlexGap
             flexWrap="wrap"
           >
-            {books.map((book) => (
+            {filteredBooks.map((book) => (
               <Card
                 sx={{
                   display: 'flex',
@@ -93,7 +125,7 @@ function Books() {
         </div>
       )}
     </Box>
-  ); // returns all books in the MUI components style
+  );
 }
 
 export default Books;
