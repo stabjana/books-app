@@ -54,7 +54,7 @@
       "start": "2023-06-15",
       "end": "2023-07-10",
       "stars": 5,
-      "img": "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61pX0NiXdvL._AC_.jpg"
+      "img": "https://www.movienewsletters.net/photos/321703R1.jpg"
     },
     {
       "author": "David JP Phillips",
@@ -68,6 +68,16 @@
       "stars": "5",
       "id": 5,
       "img": "https://www.davidjpphillips.com/wp-content/uploads/2023/08/highonlife_copy-195x300.jpg"
+    },
+    {
+      "author": "",
+      "name": "",
+      "genres": [],
+      "completed": false,
+      "start": null,
+      "end": null,
+      "stars": null,
+      "id": 6
     }
   ]
 }
