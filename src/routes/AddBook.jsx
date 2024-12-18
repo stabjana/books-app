@@ -111,7 +111,7 @@ function AddBook() { //allows to add details about a new book // useState -> man
 
         <DateField name="start" label="Started" />
         <DateField name="end" label="Finished" disabled={!book.completed} />
-        <Stack spacing={1}>
+        <Stack spacing={1} sx={{ flexDirection: "row" }}>
           <Rating
             name="stars"
             value={rateValue}
