@@ -26,7 +26,7 @@ function AddBook() { //allows to add details about a new book // useState -> man
     stars: null,
   });
 
-  const genreChangeHandler = (event) => { // if genres field changes
+  const genreChangeHandler = (event) => { // checks if genres field changes
     const { value } = event.target;
     setBook({
       ...book,
@@ -34,7 +34,7 @@ function AddBook() { //allows to add details about a new book // useState -> man
     });
   };
 
-  const rateChangeHandler = (event) => { // if rating field changes
+  const rateChangeHandler = (event) => { // checks if rating field changes
     const { value } = event.target;
     setBook({
       ...book,
@@ -42,7 +42,7 @@ function AddBook() { //allows to add details about a new book // useState -> man
     });
   };
 
-  const addBookHandler = (e) => { // form input changes - updates in book state
+  const addBookHandler = (e) => { // checks if form input changes - updates in book state
     const { name, value, checked, type } = e.target;
     if (type === 'checkbox' && name === 'completed') {
       setBook({ ...book, [name]: checked });
