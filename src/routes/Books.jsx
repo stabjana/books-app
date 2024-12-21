@@ -13,6 +13,7 @@ import {
   Typography,
   TextField
 } from '@mui/material';
+import fallBackImg from "../assets/pngkey.com-placeholder-png-3500680.png"
 
 // list of books will be get and rendered
 
@@ -85,7 +86,7 @@ function Books() {
               >
                 <CardMedia
                   sx={{ height: 250 }}
-                  image={book.img}
+                  image={book.img ? book.img : fallBackImg}
                   title={book.name}
                 />
                 <Box sx={{ pt: 2, pl: 2 }}>
