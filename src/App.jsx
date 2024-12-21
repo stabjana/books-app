@@ -25,7 +25,7 @@ function App() { // define paths and children of root
       element: <Root />,
       children: [
         { path: '/', element: <Books /> },
-        { path: '/book', element: <Book /> },
+        { path: '/book/:id', element: <Book /> },
         { path: '/addnew', element: <AddBook /> },
       ],
     },
