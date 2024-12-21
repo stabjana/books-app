@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import useAxios from '../services/useAxios';
 import {
   Box,
@@ -13,7 +14,7 @@ import {
   Typography,
   TextField
 } from '@mui/material';
-import fallBackImg from "../assets/pngkey.com-placeholder-png-3500680.png"
+import fallBackImg from "../assets/pngkey.com-placeholder-png-3500680.png";
 
 // list of books will be get and rendered
 
@@ -22,6 +23,7 @@ function Books() {
   const { data: books, alert, loading, get } = useAxios('http://localhost:3000'); //use the custom hook to get data from the server
   const [search, setSearch] = useState('');
   const [filteredBooks, setFilteredBooks] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (books.length === 0) {
@@ -53,7 +55,6 @@ function Books() {
     setSearch(e.target.value);
   };
 
-  // TODO: Implement search functionality
   return (
     <Box sx={{ mx: 'auto', p: 2 }}>
       <TextField
@@ -118,7 +119,7 @@ function Books() {
                     readOnly
                     size="small"
                   />
-                  <Button size="small">Learn More</Button>
+                  <Button size="small" onClick={() => navigate(`/book/${book.id}`)}>Learn More</Button>
                 </CardActions>
               </Card>
             ))}
