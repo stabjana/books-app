@@ -31,3 +31,7 @@ List of core features:
 - copy the address of the local host to your browser `http://localhost:5173/`
 - now you can see the website
 - to terminate the server press ctrl + c in the vs code terminaly
+
+### What about jenkins?
+
+A period later we learned how to use Jenkins and here we are practicing in the repo how changes are being handled.
