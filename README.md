@@ -31,3 +31,9 @@ List of core features:
 - copy the address of the local host to your browser `http://localhost:5173/`
 - now you can see the website
 - to terminate the server press ctrl + c in the vs code terminaly
+
+
+
+
+- added this line on line 38
+
