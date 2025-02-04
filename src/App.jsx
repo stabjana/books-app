@@ -10,7 +10,7 @@ import AddBook from './routes/AddBook';
 const theme = createTheme({ // dark and light version?
   palette: {
     primary: {
-      main: '#004d40',
+      main: '#333',
     },
     secondary: {
       main: '#ffab40',
