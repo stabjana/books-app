@@ -1,0 +1,6 @@
+projectKey=sonarqube_books
+serverUrl=http://localhost:9000
+serverVersion=25.2.0.102705
+dashboardUrl=http://localhost:9000/dashboard?id=sonarqube_books
+ceTaskId=278a96be-1d58-4a02-8dc4-61c0b765a72f
+ceTaskUrl=http://localhost:9000/api/ce/task?id=278a96be-1d58-4a02-8dc4-61c0b765a72f

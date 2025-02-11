@@ -31,3 +31,7 @@ List of core features:
 - copy the address of the local host to your browser `http://localhost:5173/`
 - now you can see the website
 - to terminate the server press ctrl + c in the vs code terminaly
+
+# Sonar Cloud Badge
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=stabjana_books-app&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=stabjana_books-app)
